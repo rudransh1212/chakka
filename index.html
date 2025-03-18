@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chakka Surprise!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fffae6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            transition: background-color 0.5s;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: white;
+            border-radius: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff9800;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+        #funnyImage {
+            display: none;
+            width: 100%;
+            max-width: 250px;
+            animation: bounce 0.5s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        @keyframes disco {
+            0% { background-color: red; }
+            14% { background-color: orange; }
+            28% { background-color: yellow; }
+            42% { background-color: green; }
+            57% { background-color: blue; }
+            71% { background-color: indigo; }
+            85% { background-color: violet; }
+            100% { background-color: red; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <h1>Type "chakka" and get a surprise!</h1>
+        <input type="text" id="userInput" placeholder="Type here...">
+        <button onclick="showFunnyImage()">Proceed</button>
+    </div>
+    <img id="funnyImage" src="shreyans.jpeg" alt="Funny Face">
+
+    <script>
+        function showFunnyImage() {
+            let input = document.getElementById("userInput").value.toLowerCase();
+            let img = document.getElementById("funnyImage");
+            let body = document.body;
+            let container = document.getElementById("mainContainer");
+            
+            if (input === "chakka") {
+                container.style.display = "none";
+                img.style.display = "block";
+                body.style.animation = "disco 1s infinite";
+            } else {
+                alert("You need to type 'chakka' first!");
+            }
+        }
+    </script>
+</body>
+</html>
